@@ -1,0 +1,101 @@
+problem = list of dictionaries terkait kapal dan kendaraan yang ada dalam case
+isinya: 
+"ship": {"width", "length", "max_capacity"}
+"vehicles": {"id", "width", "length", "fee", "weight", "eta} (bisa dalam list (banyak kendaraan))
+
+state = list of dictionaries terkait letak, koordinat, dan orientasi dari seluruh vehicles dalam problem
+isinya{
+    [{"location", "x", "y", "orientation"}]
+}
+
+buat pendefinisian states berarti perlu tau moves yang memungkinkan,
+1. Bergeser (berpindah posisi tapi orientasi tetap)
+2. Berputar (berubah arah orientasi)
+3. Masuk (kendaraan dari luar dimasukkan ke kapal)
+4. Keluar (kebalikan masuk)
+5. Tukar 2 kendaraan -> bisa 22nya di dalam atau satu di dalam satu di luar
+
+each of those bisa pakai fungsi bantuan
+
+fungsi shift(state, problem):
+    width: width dari problem
+    length: length dari problem
+    result: list kosong untuk menampung states yang dihasilkan
+
+    enumerate setiap state:
+        if kendaraan di luar:
+            continue
+        for x in width:
+            for y in length: (untuk membuat kombinasi koordinat)
+                if koordinat now sama dengan x,y:
+                    continue
+                result.append(state baru dengan perubahan koordinat)
+    return result
+
+Berarti perlu fungsi untuk copy state terus update state
+
+fungsi copy_state(state):
+    return [dict(v) dari each v in state] (v as in vehicle)
+
+fungsi update(state, updates): (updates -> list of dict isinya state yang berubah)
+    state baru = copy_state(state)
+    for i, v in updates.items():
+        state baru[i] = v
+    return state baru
+
+fungsi rotate(state, problem):
+    result = []
+    enumerate state:
+        if kendaraan di luar:
+            continue
+        if orientantion = H:
+            orientasi baru = v
+        else:
+            orientasi baru = H
+        result.append(state, update)
+    return result
+
+fungsi enter(state, problem):
+    width
+    length
+
+    result = []
+    enumerate state:
+        if kendaraan di dalam:
+            continue
+        for x
+            for y
+                for orientasi (ada 2 jenis orientasi)
+                    result.append(update_state(state, update))
+    return result
+
+fungsi exit(state, problem):
+    result[]
+    enumerate state:
+        if kendaraan di luar:
+            continue
+        result.append(update_state(state, state baru))
+    return result
+
+fungsi tukar 2 dalam(state, problem):
+    list_kendaraan di dalam kapal
+    result = []
+    for i, j di kombinasi 2 kapal dari list
+        k, l = state i dan state j
+        kalau i dan j sama:
+            continue
+        result.append(update_state(state, menukar koordinat di sini))
+    return result
+
+fungsi tukar 1 luar 1 dalam (state, problem):
+    list kendaraan di dalam kapal
+    list di luar
+    result = []
+    for each di dalam
+        for each di luar
+            result.append
+    return result
+
+kalau all neighbors -> jalanin aja semua terus dites apakah valid
+
+kalau random neighbor -> all_neighbors dipilih random??
