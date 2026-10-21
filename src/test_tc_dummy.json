@@ -1,0 +1,1 @@
+{"ship": {"width": 5, "length": 5, "max_capacity": 100}, "vehicles": [{"id": "1", "width": 2, "length": 3, "fee": 50, "weight": 10, "eta": 2}, {"id": "2", "width": 2, "length": 2, "fee": 30, "weight": 5, "eta": 1}, {"id": "3", "width": 4, "length": 4, "fee": 100, "weight": 90, "eta": 1}]}
