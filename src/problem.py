@@ -109,7 +109,7 @@ def save_output(result, output_directory="output"):
     fig, ax = plt.subplots(figsize=(7, 5))
 
     if "history" in result:
-        ax.plot(range(len(result["history_max"])), result["history_max"], label = "objective")
+        ax.plot(range(len(result["history"])), result["history"], label = "objective")
     else:
         ax.plot(range(len(result["history_max"])), result["history_max"], label = "max")
         ax.plot(range(len(result["history_mean"])), result["history_mean"], label = "mean")
