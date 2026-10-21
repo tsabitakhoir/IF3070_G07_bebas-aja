@@ -1,0 +1,253 @@
+Simulated Annealing
+SA is pretty simple actually, start with a random state, then pilih random neighbor
+hitung cost/value dari neighbor kalau better dipilih kalau lebih jelek dihitung dulu probabilitasnya
+pakai anulah ada itu pokoknya. begitu terus sampai a stop condition. stop condition bisa T nyentuh 0 or ada batas iterasinya
+also perlu mikirin cooling rate gitu 
+some good questions hmmm random_neighbor bisa return None, what then? jadi stop condition kah?
+
+yang perlu dicatat for each iteration:
+berpindah ngga?, objective, apalagi yak
+
+kasaran banget buat fungsi SA nya:
+
+alpha (cooling rate) = something-something
+temperature = something something
+iterations = misal 50
+
+def SA(state, problem, temperature, cooling_rate, iterations):
+    curr_state = state
+    curr_fee = objective(curr_state)
+    iteration = 0
+    history = []
+
+    for x in range(iterations):
+        change = 0
+        neighbor = random_neighbor()
+
+        if objective(neighbor) >= curr_fee:
+            curr_state = copy_state(neighbor)
+            curr_fee = objective(curr_state)
+            change = 1
+        else:
+            delta = curr_fee - objective(neighbor)
+            if rng.random() < math.exp(delta/temperature):
+                curr_state = copy_state(neighbor)
+                curr_fee = objective(curr_state)
+                change = 1
+        
+        iteration++
+        history.append({iteration: change, curr_fee})
+        temperature *= cooling_rate
+
+        if temperature <= 0:
+            break
+
+        mau nambahin aturan stop lagi kalau misal change = 0 udah misal x kali berturut-turut stop aja
+
+        also ini belum menangani random_neighbor = None 
+
+    return curr_state, curr_fee
+
+Refinement satu:
+from math import exp
+from core import objective
+from neighbors import random_neighbor
+
+def SA(state, problem, temperature, alpha, iterations, rng):
+    curr_state = state
+    curr_fee = objective(curr_state, problem)
+    iteration = 0
+    history = []
+
+    for x in range(iterations):
+        neighbor = random_neighbor(state, problem, rng)
+        if neighbor is None:
+            break
+        neighbor_fee = objective(neighbor, problem)
+
+        if neighbor_fee >= curr_fee:
+            curr_state = neighbor
+            curr_fee = neighbor_fee
+        else:
+            delta = neighbor_fee - curr_fee
+            if rng.random() < math.exp(delta/temperature):
+                curr_state = neighbor
+                curr_fee = neighbor_fee
+
+        iteration += 1
+        history.append(curr_fee)
+        temperature *= cooling_rate
+
+        if temperature <= 1e-8:
+            break
+
+    return curr_state, curr_fee, history
+
+refinement dua:
+import math
+from core import objective
+from neighbors import random_neighbor
+
+def SA(state, problem, temperature, alpha, iterations, rng):
+    curr_state = state
+    curr_fee = objective(curr_state, problem)
+    best_state = curr_state
+    best_fee = curr_fee
+    history = []
+
+    for x in range(iterations):
+        neighbor = random_neighbor(curr_state, problem, rng)
+        if neighbor is None:
+            break
+        neighbor_fee = objective(neighbor, problem)
+
+        if neighbor_fee >= curr_fee:
+            curr_state = neighbor
+            curr_fee = neighbor_fee
+            if neighbor_fee > best_fee:
+                best_state = neighbor
+                best_fee = neighbor_fee
+        else:
+            delta = neighbor_fee - curr_fee
+            if rng.random() < math.exp(delta/temperature):
+                curr_state = neighbor
+                curr_fee = neighbor_fee
+
+        history.append(curr_fee)
+        temperature *= alpha
+
+        if temperature <= 1e-8:
+            break
+
+    return curr_state, curr_fee, best_state, best_fee, history
+
+Hasil run with the current code and problem set:
+problem = {
+    "ship": {"width": 6, "length": 3, "max_capacity": 22},
+    "vehicles": [
+        {"id": "A", "width": 2, "length": 1, "fee": 10, "weight": 3, "eta": 1},
+        {"id": "B", "width": 2, "length": 1, "fee": 20, "weight": 5, "eta": 1},
+        {"id": "C", "width": 1, "length": 4, "fee": 30, "weight": 6, "eta": 3},
+        {"id": "D", "width": 2, "length": 2, "fee": 25, "weight": 5, "eta": 2},
+        {"id": "E", "width": 3, "length": 2, "fee": 40, "weight": 8, "eta": 4},
+    ],
+}
+
+state = [
+    {"location": 0, "x": 0, "y": 0, "orientation": "H"},
+    {"location": -1, "x": 0, "y": 0, "orientation": "H"},
+    {"location": 0, "x": 0, "y": 2, "orientation": "V"},
+    {"location": -1, "x": 0, "y": 0, "orientation": "H"},
+    {"location": -1, "x": 0, "y": 0, "orientation": "H"},
+]
+
+rng = random.Random(0)
+State terbaik adalah:  [{'location': 0, 'x': 5, 'y': 1, 'orientation': 'V'}, {'location': -1, 'x': 0, 'y': 0, 'orientation': 'H'}, {'location': 0, 'x': 2, 'y': 0, 'orientation': 'V'}, {'location': 0, 'x': 3, 'y': 1, 'orientation': 'H'}, {'location': 0, 'x': 0, 'y': 0, 'orientation': 'V'}]
+Fee terbesar adalah:  105
+State terakhir adalah:  [{'location': 0, 'x': 3, 'y': 1, 'orientation': 'V'}, {'location': -1, 'x': 0, 'y': 0, 'orientation': 'H'}, {'location': 0, 'x': 2, 'y': 0, 'orientation': 'V'}, {'location': 0, 'x': 4, 'y': 1, 'orientation': 'H'}, {'location': 0, 'x': 0, 'y': 0, 'orientation': 'V'}]
+Fee terakhit adalah:  105
+
+Jumlah iterasi adalah:  449
+Berikut history pencarian:  [60, 75, 85, 85, 85, 85, 60, 100, 100, 70, 70, 70, 70, 70, 70, 55, 55, 55, 55, 55, 55, 55, 70, 70, 95, 85, 65, 75, 75, 65, 65, 65, 65, 65, 65, 65, 65, 60, 45, 50, 50, 50, 50, 45, 45, 45, 55, 70, 70, 75, 75, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,105, 105, 105, 105, 105]
+
+Output yang diperlukan dari spek:
+a. state awal dan akhir
+b. nilai objective function akhir yang dicapai
+c. plot nilai objective function terhadap banyak iterasi yang telah dilewati
+d. Durasi proses pencarian
+e. Plot e^(delta/temperature) terhadap iterasi
+f. Frekuensi 'stuck' di local optima
+
+refinement tiga (masih tanpa plot):
+import math
+import time
+from core import objective
+from neighbors import random_neighbor
+
+def SA(state, problem, temperature, alpha, iterations, rng):
+    curr_state = state
+    curr_fee = objective(curr_state, problem)
+    best_state = curr_state
+    best_fee = curr_fee
+    history_fee = []
+    history_probabilty = []
+    stuck_freq = 0
+
+    start = time.perf_counter()
+    for x in range(iterations):
+        neighbor = random_neighbor(curr_state, problem, rng)
+        if neighbor is None:
+            break
+        neighbor_fee = objective(neighbor, problem)
+
+        delta = neighbor_fee - curr_fee
+        if rng.random() < math.exp(delta/temperature):
+            curr_state = neighbor
+            curr_fee = neighbor_fee
+            if best_fee > curr_fee:
+                best_fee = curr_fee
+                best_state = curr_state
+
+        history_probabilty.append(delta)
+        history_fee.append(curr_fee)
+        temperature *= alpha
+
+        if temperature <= 1e-8:
+            break
+    end = time.perf_counter()
+    durasi = start - end
+    return state, curr_state, curr_fee, history_fee, durasi, history_probabilty
+
+hmmm what does local optima even means di SA since dia cuma generate one neighbor dan random lagi...
+
+yauds nanti aja deh
+
+oh apparently kalau deltanya positif jangan dihitung math.exp nya, kalau gitu langsung 1 aja udah oke
+
+refinement 4:
+
+import math
+import time
+from core import objective
+from neighbors import random_neighbor
+
+def SA(state, problem, temperature, alpha, iterations, rng):
+    curr_state = state
+    curr_fee = objective(curr_state, problem)
+    best_state = curr_state
+    best_fee = curr_fee
+    history_fee = []
+    history_probabilty = []
+    stuck_freq = 0
+
+    start = time.perf_counter()
+    for x in range(iterations):
+        neighbor = random_neighbor(curr_state, problem, rng)
+        if neighbor is None:
+            break
+        neighbor_fee = objective(neighbor, problem)
+
+        delta = neighbor_fee - curr_fee
+        if delta >= 0:
+            probability = 1
+            curr_state = neighbor
+            curr_fee = neighbor_fee
+            if neighbor_fee > best_fee:
+                best_state = neighbor
+                best_fee = neighbor_fee
+
+        else:
+            probability = math.exp(delta/temperature)
+            if rng.random() < probability:
+                curr_state = neighbor
+                curr_fee = neighbor_fee
+
+        history_probabilty.append(probability)
+        history_fee.append(curr_fee)
+        temperature *= alpha
+
+        if temperature <= 1e-8:
+            break
+    end = time.perf_counter()
+    durasi = end - start
+    return state, curr_state, curr_fee, history_fee, durasi, history_probabilty
