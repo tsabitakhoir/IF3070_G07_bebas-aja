@@ -38,26 +38,35 @@ def mutation(child, problem, rng, mutation_rate=0.1):
         return child
 
     i = rng.randint(0, len(child) - 1)
-    category = rng.choice(["location", "x", "y", "orientation"])
     origin_state = child[i].copy()
     vehicle_spec = problem["vehicles"][i]
     ship_width = problem["ship"]["width"]
     ship_length = problem["ship"]["length"]
 
+    # kendaraan di luar kapal cuma bisa mutasi lokasi doang
+    if origin_state["location"] == -1:
+        category = "location"
+    else:
+        category = rng.choice(["location", "x", "y", "orientation"])
+        
     # mutasi tiap2 kategori dalam state secara random
     if category == "location":
-        new_location = rng.choice([-1, 0])
-        child[i]["location"] = new_location
-
-        if new_location == 0 and origin_state["location"] == -1:
-            if child[i]["orientation"] == "H":
+        if origin_state["location"] == 0:
+            child[i] = {"location": -1, "x": 0, "y": 0, "orientation" : "H"}
+        else:
+            orientation = rng.choice(["H", "V"])
+            if orientation == "H":
                 limit_x = ship_width - vehicle_spec["width"]
                 limit_y = ship_length - vehicle_spec["length"]
             else:
                 limit_x = ship_width - vehicle_spec["length"]
                 limit_y = ship_length - vehicle_spec["width"]
-            child[i]["x"] = rng.randint(0, max(0, limit_x))
-            child[i]["y"] = rng.randint(0, max(0, limit_y))
+            child[i] = {
+                "location": 0,
+                "x": rng.randint(0, max(0, limit_x)),
+                "y": rng.randint(0, max(0, limit_y)),
+                "orientation": orientation
+            }
     elif category == "x":
         if child[i]["orientation"] == "H":
             limit_x = ship_width - vehicle_spec["width"]
@@ -127,7 +136,7 @@ def genetic_algorithm(problem, rng, population_size=50, max_generations=100, mut
             best_state = copy.deepcopy(current_best_state)
             best_fitness = current_best_fitness
 
-        history_max.append(best_fitness)
+        history_max.append(current_best_fitness)
         history_mean.append(sum(list_of_fitness) / len(list_of_fitness))   
 
     end_time = time.perf_counter()
@@ -148,5 +157,6 @@ def genetic_algorithm(problem, rng, population_size=50, max_generations=100, mut
         "history_mean": history_mean,
         "duration_s": end_time - start_time,
         "iterations": max_generations,
-        "evaluations": evaluations
+        "evaluations": evaluations,
+        "extra": {}
     }    
