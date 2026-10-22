@@ -25,82 +25,64 @@ def tournament(list_of_fitness, list_of_states,rng, prohibited = None, tournamen
             best_fitness = list_of_fitness[i]
     return best_index, list_of_states[best_index], best_fitness
 
-# fungsi crossover (motong 2 parent di crossover point, digabungin jadi 1 child)
-def crossover(parent1, parent2, rng):
+# fungsi crossover. child mulai dari parent1, lalu gen parent2 setelah titik potong
+# ditempel satu-satu, kalau bikin child nggak valid gen itu dilewati
+def crossover(parent1, parent2, problem, rng):
     crossover_point = rng.randint(1, len(parent1) - 1)
-    child = copy.deepcopy(parent1[0:crossover_point]) + copy.deepcopy(parent2[crossover_point:])
+    child = copy.deepcopy(parent1)
+    for i in range(crossover_point, len(parent2)):
+        if child[i] == parent2[i]:
+            continue
+        lama = child[i]
+        child[i] = dict(parent2[i])
+        if not is_valid(child, problem):
+            child[i] = lama
     return child
 
-#fungsi mutation. state child diubah berdasarkan kategori state (lokasi, x, y, orientasi)
-def mutation(child, problem, rng, mutation_rate=0.1):
-    # kalau mutation rate lebih kecil di banding random number, mutasi ga terjadi, langsung return child aja
+# fungsi mutation. pilih satu kendaraan, kalau lagi di kapal kadang dikeluarin,
+# selain itu ditaruh di posisi dan orientasi acak. diulang sampai ketemu yang valid
+def mutation(child, problem, rng, mutation_rate=1.0, max_attempts=10):
     if rng.random() > mutation_rate:
         return child
 
-    i = rng.randint(0, len(child) - 1)
-    origin_state = child[i].copy()
-    vehicle_spec = problem["vehicles"][i]
-    ship_width = problem["ship"]["width"]
-    ship_length = problem["ship"]["length"]
+    ship = problem["ship"]
+    for _ in range(max_attempts):
+        i = rng.randint(0, len(child) - 1)
+        origin_state = child[i]
 
-    # kendaraan di luar kapal cuma bisa mutasi lokasi doang
-    if origin_state["location"] == -1:
-        category = "location"
-    else:
-        category = rng.choice(["location", "x", "y", "orientation"])
-        
-    # mutasi tiap2 kategori dalam state secara random
-    if category == "location":
-        if origin_state["location"] == 0:
-            child[i] = {"location": -1, "x": 0, "y": 0, "orientation" : "H"}
+        if origin_state["location"] == 0 and rng.random() < 0.3:
+            child[i] = {"location": -1, "x": 0, "y": 0, "orientation": "H"}
         else:
+            v = problem["vehicles"][i]
             orientation = rng.choice(["H", "V"])
             if orientation == "H":
-                limit_x = ship_width - vehicle_spec["width"]
-                limit_y = ship_length - vehicle_spec["length"]
+                w2 = v["width"]
+                l2 = v["length"]
             else:
-                limit_x = ship_width - vehicle_spec["length"]
-                limit_y = ship_length - vehicle_spec["width"]
-            child[i] = {
-                "location": 0,
-                "x": rng.randint(0, max(0, limit_x)),
-                "y": rng.randint(0, max(0, limit_y)),
-                "orientation": orientation
-            }
-    elif category == "x":
-        if child[i]["orientation"] == "H":
-            limit_x = ship_width - vehicle_spec["width"]
-        else:
-            limit_x = ship_width - vehicle_spec["length"]
-        child[i]["x"] = rng.randint(0, max(0, limit_x))
-    elif category == "y":
-        if child[i]["orientation"] == "H":
-            limit_y = ship_length - vehicle_spec["length"]
-        else:
-            limit_y = ship_length - vehicle_spec["width"]
-        child[i]["y"] = rng.randint(0, max(0, limit_y))
-    elif category == "orientation":
-        child[i]["orientation"] = "H" if child[i]["orientation"] == "V" else "V"
+                w2 = v["length"]
+                l2 = v["width"]
 
-    # make sure validasi child, bcs child bisa aja jadi ga bisa dimuat di kapal setelah mutasi
-    if not is_valid(child, problem):
+            limit_x = ship["width"] - w2
+            limit_y = ship["length"] - l2
+            if limit_x < 0 or limit_y < 0:
+                continue
+            child[i] = {"location": 0, "x": rng.randint(0, limit_x), "y": rng.randint(0, limit_y), "orientation": orientation}
+
+        if is_valid(child, problem):
+            return child
         child[i] = origin_state
 
     return child
 
 # fungsi mating. fungsi buat ngeprodiksi satu anak yang valid
 def mating (list_of_states, list_of_fitness, problem, rng, mutation_rate, tournament_size, max_attempts=10):
-    for _ in range(max_attempts):
-        pi1 = tournament(list_of_fitness, list_of_states, rng, tournament_size=tournament_size)[0]
-        pi2 = tournament(list_of_fitness, list_of_states, rng, prohibited=[pi1], tournament_size=tournament_size)[0]
-        child = crossover(list_of_states[pi1], list_of_states[pi2], rng)
-        mutant = mutation(child, problem, rng, mutation_rate)
-        if is_valid(mutant, problem):
-            return mutant
-    return copy.deepcopy(list_of_states[rng.choice([pi1, pi2])])
+    pi1 = tournament(list_of_fitness, list_of_states, rng, tournament_size=tournament_size)[0]
+    pi2 = tournament(list_of_fitness, list_of_states, rng, prohibited=[pi1], tournament_size=tournament_size)[0]
+    child = crossover(list_of_states[pi1], list_of_states[pi2], problem, rng)
+    return mutation(child, problem, rng, mutation_rate, max_attempts)
 
 #fungsi utama genetic algorithm
-def genetic_algorithm(problem, rng, population_size=50, max_generations=100, mutation_rate=0.1, tournament_size=3, max_attempts=10):
+def genetic_algorithm(problem, rng, population_size=50, max_generations=100, mutation_rate=1.0, tournament_size=3, max_attempts=10):
     # ibarat taksi nyalain argo yee
     start_time = time.perf_counter()
     evaluations = 0
