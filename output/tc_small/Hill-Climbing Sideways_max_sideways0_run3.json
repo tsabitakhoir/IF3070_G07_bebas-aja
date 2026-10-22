@@ -1,0 +1,95 @@
+{
+  "algorithm": "Hill-Climbing Sideways",
+  "config": {
+    "max_sideways": 0
+  },
+  "initial_state": [
+    {
+      "location": 0,
+      "x": 0,
+      "y": 1,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 4,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 3,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    }
+  ],
+  "final_state": [
+    {
+      "location": 0,
+      "x": 0,
+      "y": 1,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 4,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 3,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    }
+  ],
+  "final_value": 133,
+  "history": [
+    133
+  ],
+  "duration_s": 0.0015251000004354864,
+  "iterations": 0,
+  "evaluations": 18,
+  "extra": {
+    "total_sideways": 0,
+    "alasan": "jatah sideways habis"
+  },
+  "run": 3,
+  "seed": 3
+}

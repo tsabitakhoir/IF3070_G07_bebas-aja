@@ -1,0 +1,705 @@
+{
+  "algorithm": "Genetic Algorithm",
+  "config": {
+    "population_size": 20,
+    "max_generations": 100,
+    "mutation_rate": 1.0,
+    "tournament_size": 3,
+    "max_attempts": 10
+  },
+  "initial_state": [
+    {
+      "location": 0,
+      "x": 8,
+      "y": 7,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 13,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 4,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 13,
+      "y": 9,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 13,
+      "y": 2,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 2,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 7,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 12,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 12,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 10,
+      "y": 9,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 10,
+      "y": 3,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 11,
+      "y": 5,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 11,
+      "y": 16,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 12,
+      "y": 12,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 13,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 14,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 9,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 6,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 18,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 1,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 4,
+      "y": 1,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 2,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 1,
+      "orientation": "H"
+    }
+  ],
+  "final_state": [
+    {
+      "location": 0,
+      "x": 3,
+      "y": 11,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 4,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 14,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 13,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 10,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 9,
+      "y": 1,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 13,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 5,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 9,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 10,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 17,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 18,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 12,
+      "y": 4,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 16,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 4,
+      "y": 9,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 14,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 8,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 8,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 19,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 10,
+      "y": 11,
+      "orientation": "H"
+    }
+  ],
+  "final_value": 1143,
+  "history_max": [
+    985,
+    975,
+    975,
+    977,
+    998,
+    987,
+    1003,
+    994,
+    1000,
+    1000,
+    1013,
+    1006,
+    1001,
+    1013,
+    993,
+    993,
+    989,
+    990,
+    1006,
+    1031,
+    1057,
+    1057,
+    1039,
+    1072,
+    1094,
+    1094,
+    1092,
+    1096,
+    1122,
+    1119,
+    1122,
+    1115,
+    1122,
+    1106,
+    1115,
+    1122,
+    1122,
+    1119,
+    1119,
+    1119,
+    1115,
+    1119,
+    1126,
+    1114,
+    1129,
+    1120,
+    1120,
+    1120,
+    1122,
+    1122,
+    1122,
+    1130,
+    1122,
+    1105,
+    1114,
+    1124,
+    1109,
+    1124,
+    1101,
+    1090,
+    1090,
+    1099,
+    1090,
+    1099,
+    1114,
+    1101,
+    1112,
+    1137,
+    1137,
+    1096,
+    1113,
+    1095,
+    1122,
+    1105,
+    1127,
+    1095,
+    1105,
+    1096,
+    1083,
+    1087,
+    1075,
+    1103,
+    1110,
+    1103,
+    1107,
+    1107,
+    1098,
+    1125,
+    1103,
+    1103,
+    1142,
+    1126,
+    1136,
+    1118,
+    1131,
+    1143,
+    1118,
+    1118,
+    1129,
+    1138
+  ],
+  "history_mean": [
+    738.85,
+    773.95,
+    853.95,
+    909.3,
+    890.95,
+    903.6,
+    921.0,
+    908.6,
+    916.15,
+    943.1,
+    964.55,
+    944.05,
+    946.65,
+    961.35,
+    928.95,
+    930.15,
+    942.85,
+    935.45,
+    915.35,
+    941.85,
+    958.75,
+    970.5,
+    950.3,
+    1004.2,
+    1019.9,
+    1039.0,
+    1046.1,
+    1032.6,
+    1035.65,
+    1052.2,
+    1055.9,
+    1059.45,
+    1061.75,
+    1046.85,
+    1077.8,
+    1066.1,
+    1051.35,
+    1054.1,
+    1041.5,
+    1038.5,
+    1038.6,
+    1045.75,
+    1069.7,
+    1056.85,
+    1066.4,
+    1060.8,
+    1062.5,
+    1076.6,
+    1061.15,
+    1074.5,
+    1038.75,
+    1049.15,
+    1048.35,
+    1061.85,
+    1052.85,
+    1039.7,
+    1050.35,
+    1045.5,
+    1028.85,
+    1015.95,
+    1026.3,
+    1029.3,
+    1030.45,
+    1030.95,
+    1030.3,
+    1030.1,
+    1040.05,
+    1032.65,
+    1017.75,
+    1001.85,
+    999.65,
+    1039.65,
+    1027.85,
+    1028.25,
+    1027.65,
+    1026.65,
+    1025.45,
+    1043.9,
+    1025.4,
+    1034.25,
+    1014.1,
+    1033.85,
+    1031.85,
+    1044.1,
+    1037.45,
+    1041.35,
+    1031.05,
+    1042.95,
+    1032.25,
+    1062.0,
+    1045.95,
+    1047.65,
+    1049.05,
+    1048.7,
+    1058.35,
+    1050.35,
+    1040.45,
+    1057.4,
+    1078.05,
+    1087.95
+  ],
+  "duration_s": 4.783020499991835,
+  "iterations": 100,
+  "evaluations": 2020,
+  "extra": {},
+  "run": 1,
+  "seed": 1
+}

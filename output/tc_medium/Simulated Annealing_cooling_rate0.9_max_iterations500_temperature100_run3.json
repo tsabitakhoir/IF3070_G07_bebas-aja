@@ -1,0 +1,315 @@
+{
+  "algorithm": "Simulated Annealing",
+  "config": {
+    "temperature": 100,
+    "cooling_rate": 0.9,
+    "max_iterations": 500
+  },
+  "initial_state": [
+    {
+      "location": 0,
+      "x": 1,
+      "y": 9,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 8,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 6,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 4,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 2,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 9,
+      "orientation": "V"
+    }
+  ],
+  "final_state": [
+    {
+      "location": 0,
+      "x": 0,
+      "y": 10,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 1,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 6,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 2,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 6,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 9,
+      "orientation": "H"
+    }
+  ],
+  "final_value": 283,
+  "history": [
+    243,
+    227,
+    227,
+    227,
+    227,
+    227,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    243,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    265,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283,
+    283
+  ],
+  "duration_s": 2.236049900006037,
+  "iterations": 73,
+  "evaluations": 74,
+  "extra": {
+    "accept_prob_history": [
+      1,
+      0.8371284313607636,
+      1,
+      0.6536128633449472,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0.022746679197032153,
+      0.026503617432882133,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0.0041691149080756995,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1.0928604678015203e-08,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3.6125732906531395e-170,
+      1.3274030709226503e-127,
+      1.733796140464483e-73,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "count_stuck": 4
+  },
+  "run": 3,
+  "seed": 3
+}

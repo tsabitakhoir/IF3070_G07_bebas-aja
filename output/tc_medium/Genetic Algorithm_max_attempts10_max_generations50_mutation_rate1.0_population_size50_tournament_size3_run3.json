@@ -1,0 +1,269 @@
+{
+  "algorithm": "Genetic Algorithm",
+  "config": {
+    "population_size": 50,
+    "max_generations": 50,
+    "mutation_rate": 1.0,
+    "tournament_size": 3,
+    "max_attempts": 10
+  },
+  "initial_state": [
+    {
+      "location": 0,
+      "x": 6,
+      "y": 4,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 8,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 6,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 8,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 3,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 10,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 4,
+      "y": 7,
+      "orientation": "V"
+    }
+  ],
+  "final_state": [
+    {
+      "location": 0,
+      "x": 6,
+      "y": 4,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 8,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 6,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 7,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 5,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 8,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 2,
+      "y": 3,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 1,
+      "y": 10,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 4,
+      "y": 7,
+      "orientation": "V"
+    }
+  ],
+  "final_value": 283,
+  "history_max": [
+    283,
+    267,
+    266,
+    249,
+    246,
+    266,
+    278,
+    247,
+    267,
+    256,
+    256,
+    266,
+    256,
+    256,
+    256,
+    265,
+    256,
+    265,
+    265,
+    265,
+    265,
+    265,
+    263,
+    263,
+    263,
+    265,
+    263,
+    256,
+    256,
+    265,
+    263,
+    278,
+    278,
+    274,
+    278,
+    263,
+    278,
+    263,
+    263,
+    265,
+    263,
+    263,
+    278,
+    278,
+    263,
+    278,
+    278,
+    278,
+    272,
+    278
+  ],
+  "history_mean": [
+    198.26,
+    188.98,
+    178.22,
+    179.52,
+    184.12,
+    186.72,
+    199.42,
+    196.28,
+    200.4,
+    195.64,
+    202.24,
+    208.1,
+    207.02,
+    212.28,
+    210.24,
+    203.5,
+    210.86,
+    209.44,
+    203.54,
+    208.38,
+    216.22,
+    214.26,
+    211.24,
+    219.66,
+    220.34,
+    223.26,
+    212.24,
+    216.28,
+    207.76,
+    214.4,
+    221.46,
+    227.0,
+    223.36,
+    226.42,
+    225.28,
+    225.98,
+    227.18,
+    225.14,
+    227.22,
+    227.08,
+    226.48,
+    229.34,
+    224.38,
+    223.14,
+    227.64,
+    215.28,
+    220.26,
+    220.28,
+    224.26,
+    220.84
+  ],
+  "duration_s": 0.5361785999994026,
+  "iterations": 50,
+  "evaluations": 2550,
+  "extra": {},
+  "run": 3,
+  "seed": 3
+}
