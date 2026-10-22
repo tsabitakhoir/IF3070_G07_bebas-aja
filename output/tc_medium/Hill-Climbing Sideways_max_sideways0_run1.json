@@ -1,0 +1,172 @@
+{
+  "algorithm": "Hill-Climbing Sideways",
+  "config": {
+    "max_sideways": 0
+  },
+  "initial_state": [
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    }
+  ],
+  "final_state": [
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 4,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 3,
+      "y": 6,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 10,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 0,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    },
+    {
+      "location": 0,
+      "x": 0,
+      "y": 6,
+      "orientation": "V"
+    },
+    {
+      "location": 0,
+      "x": 6,
+      "y": 1,
+      "orientation": "V"
+    },
+    {
+      "location": -1,
+      "x": 0,
+      "y": 0,
+      "orientation": "H"
+    }
+  ],
+  "final_value": 257,
+  "history": [
+    37,
+    97,
+    156,
+    202,
+    233,
+    257
+  ],
+  "duration_s": 0.04555660000187345,
+  "iterations": 5,
+  "evaluations": 3353,
+  "extra": {
+    "total_sideways": 0,
+    "alasan": "jatah sideways habis"
+  },
+  "run": 1,
+  "seed": 1
+}
