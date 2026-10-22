@@ -1,5 +1,5 @@
 import random
-from hill_climbing import hill_climbing_sideways
+from algorithms.hill_climbing import hill_climbing_sideways
 from core import objective, is_valid
 from problem import load_problem
 problem = load_problem("test_tc_dummy.json")
