@@ -41,7 +41,6 @@ Opsi yang tersedia:
 | `--testcase <path>` | File test case |
 | `--only <nama..>` | Hanya jalankan eksperiemn tertentu: contoh: `GA_iteration` |
 | `--seed <angka..>` | Seed pada setiap run |
-| `--no-fig` | Tidak membuat gambar hehe |
 
 ## Struktur Repository
 ```
