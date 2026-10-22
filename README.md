@@ -30,6 +30,11 @@ Program dijalankan dari root repositroy. Tanpa argumen, program akan menjalkan s
     python src/runner.py
     ```
 
+atau
+
+    ```bash
+    python -m src.runner
+    ```
 Opsi yang tersedia:
 | Opsi | Fungsi |
 |---|---|
