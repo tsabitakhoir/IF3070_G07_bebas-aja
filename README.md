@@ -30,6 +30,11 @@ Program dijalankan dari root repositroy. Tanpa argumen, program akan menjalkan s
     python src/runner.py
     ```
 
+atau
+
+    ```bash
+    python -m src.runner
+    ```
 Opsi yang tersedia:
 | Opsi | Fungsi |
 |---|---|
@@ -37,6 +42,25 @@ Opsi yang tersedia:
 | `--only <nama..>` | Hanya jalankan eksperiemn tertentu: contoh: `GA_iteration` |
 | `--seed <angka..>` | Seed pada setiap run |
 | `--no-fig` | Tidak membuat gambar hehe |
+
+## Struktur Repository
+```
+├── src/
+│   ├── core.py                    
+│   ├── neighbors.py               
+│   ├── problem.py                 
+│   ├── visualisasi.py             
+│   ├── runner.py                  
+│   └── algorithms/
+│       ├── hill_climbing.py
+│       ├── simulated_annealing.py
+│       └── genetic_algorithm.py
+├── tests/                         
+├── input/ (berisikan seluruh test_case file                        
+├── output/ (berisikan seluruh output eksperimen (json dan visualisasi)                       
+├── docs/ (berisikan laporan)                         
+└── README.md
+```
 
 ## Pembagian Tugas
 | NIM | Nama | Pembagian Tugas |
