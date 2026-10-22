@@ -58,7 +58,7 @@ def SA(state, problem, temperature, alpha, iterations, rng):
         history_fee.append(curr_fee)
         temperature *= alpha
 
-        if temperature <= 0.5:
+        if temperature <= 0.05:
             break
     end = time.perf_counter()
     durasi = end - start
