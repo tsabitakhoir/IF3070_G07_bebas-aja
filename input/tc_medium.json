@@ -1,0 +1,105 @@
+{
+  "ship": {
+    "width": 8,
+    "length": 12,
+    "max_capacity": 109
+  },
+  "vehicles": [
+    {
+      "id": "V001",
+      "width": 2,
+      "length": 2,
+      "fee": 9,
+      "weight": 12,
+      "eta": 2
+    },
+    {
+      "id": "V002",
+      "width": 1,
+      "length": 3,
+      "fee": 20,
+      "weight": 3,
+      "eta": 3
+    },
+    {
+      "id": "V003",
+      "width": 1,
+      "length": 3,
+      "fee": 24,
+      "weight": 4,
+      "eta": 5
+    },
+    {
+      "id": "V004",
+      "width": 4,
+      "length": 1,
+      "fee": 22,
+      "weight": 4,
+      "eta": 3
+    },
+    {
+      "id": "V005",
+      "width": 3,
+      "length": 4,
+      "fee": 38,
+      "weight": 32,
+      "eta": 5
+    },
+    {
+      "id": "V006",
+      "width": 5,
+      "length": 5,
+      "fee": 59,
+      "weight": 41,
+      "eta": 3
+    },
+    {
+      "id": "V007",
+      "width": 3,
+      "length": 2,
+      "fee": 46,
+      "weight": 10,
+      "eta": 7
+    },
+    {
+      "id": "V008",
+      "width": 5,
+      "length": 2,
+      "fee": 37,
+      "weight": 15,
+      "eta": 6
+    },
+    {
+      "id": "V009",
+      "width": 2,
+      "length": 4,
+      "fee": 18,
+      "weight": 17,
+      "eta": 1
+    },
+    {
+      "id": "V010",
+      "width": 4,
+      "length": 3,
+      "fee": 60,
+      "weight": 24,
+      "eta": 4
+    },
+    {
+      "id": "V011",
+      "width": 4,
+      "length": 2,
+      "fee": 31,
+      "weight": 14,
+      "eta": 5
+    },
+    {
+      "id": "V012",
+      "width": 1,
+      "length": 3,
+      "fee": 16,
+      "weight": 6,
+      "eta": 5
+    }
+  ]
+}

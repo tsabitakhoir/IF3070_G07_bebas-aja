@@ -1,0 +1,329 @@
+{
+  "ship": {
+    "width": 14,
+    "length": 20,
+    "max_capacity": 398
+  },
+  "vehicles": [
+    {
+      "id": "V001",
+      "width": 5,
+      "length": 2,
+      "fee": 58,
+      "weight": 26,
+      "eta": 3
+    },
+    {
+      "id": "V002",
+      "width": 4,
+      "length": 6,
+      "fee": 175,
+      "weight": 50,
+      "eta": 5
+    },
+    {
+      "id": "V003",
+      "width": 2,
+      "length": 6,
+      "fee": 89,
+      "weight": 35,
+      "eta": 3
+    },
+    {
+      "id": "V004",
+      "width": 6,
+      "length": 5,
+      "fee": 147,
+      "weight": 47,
+      "eta": 6
+    },
+    {
+      "id": "V005",
+      "width": 6,
+      "length": 1,
+      "fee": 23,
+      "weight": 10,
+      "eta": 4
+    },
+    {
+      "id": "V006",
+      "width": 1,
+      "length": 6,
+      "fee": 34,
+      "weight": 15,
+      "eta": 4
+    },
+    {
+      "id": "V007",
+      "width": 3,
+      "length": 3,
+      "fee": 48,
+      "weight": 21,
+      "eta": 1
+    },
+    {
+      "id": "V008",
+      "width": 1,
+      "length": 3,
+      "fee": 24,
+      "weight": 5,
+      "eta": 2
+    },
+    {
+      "id": "V009",
+      "width": 1,
+      "length": 6,
+      "fee": 25,
+      "weight": 14,
+      "eta": 7
+    },
+    {
+      "id": "V010",
+      "width": 2,
+      "length": 5,
+      "fee": 36,
+      "weight": 10,
+      "eta": 5
+    },
+    {
+      "id": "V011",
+      "width": 6,
+      "length": 3,
+      "fee": 96,
+      "weight": 32,
+      "eta": 6
+    },
+    {
+      "id": "V012",
+      "width": 1,
+      "length": 1,
+      "fee": 4,
+      "weight": 2,
+      "eta": 6
+    },
+    {
+      "id": "V013",
+      "width": 5,
+      "length": 1,
+      "fee": 12,
+      "weight": 6,
+      "eta": 7
+    },
+    {
+      "id": "V014",
+      "width": 3,
+      "length": 1,
+      "fee": 7,
+      "weight": 5,
+      "eta": 2
+    },
+    {
+      "id": "V015",
+      "width": 2,
+      "length": 6,
+      "fee": 71,
+      "weight": 23,
+      "eta": 4
+    },
+    {
+      "id": "V016",
+      "width": 3,
+      "length": 5,
+      "fee": 79,
+      "weight": 39,
+      "eta": 3
+    },
+    {
+      "id": "V017",
+      "width": 4,
+      "length": 1,
+      "fee": 8,
+      "weight": 7,
+      "eta": 7
+    },
+    {
+      "id": "V018",
+      "width": 3,
+      "length": 1,
+      "fee": 18,
+      "weight": 4,
+      "eta": 5
+    },
+    {
+      "id": "V019",
+      "width": 6,
+      "length": 4,
+      "fee": 152,
+      "weight": 66,
+      "eta": 7
+    },
+    {
+      "id": "V020",
+      "width": 6,
+      "length": 2,
+      "fee": 90,
+      "weight": 30,
+      "eta": 4
+    },
+    {
+      "id": "V021",
+      "width": 1,
+      "length": 6,
+      "fee": 15,
+      "weight": 13,
+      "eta": 6
+    },
+    {
+      "id": "V022",
+      "width": 3,
+      "length": 4,
+      "fee": 44,
+      "weight": 35,
+      "eta": 4
+    },
+    {
+      "id": "V023",
+      "width": 3,
+      "length": 4,
+      "fee": 87,
+      "weight": 35,
+      "eta": 4
+    },
+    {
+      "id": "V024",
+      "width": 4,
+      "length": 1,
+      "fee": 26,
+      "weight": 7,
+      "eta": 3
+    },
+    {
+      "id": "V025",
+      "width": 2,
+      "length": 1,
+      "fee": 15,
+      "weight": 6,
+      "eta": 3
+    },
+    {
+      "id": "V026",
+      "width": 5,
+      "length": 3,
+      "fee": 112,
+      "weight": 20,
+      "eta": 6
+    },
+    {
+      "id": "V027",
+      "width": 3,
+      "length": 4,
+      "fee": 55,
+      "weight": 31,
+      "eta": 6
+    },
+    {
+      "id": "V028",
+      "width": 3,
+      "length": 5,
+      "fee": 89,
+      "weight": 16,
+      "eta": 6
+    },
+    {
+      "id": "V029",
+      "width": 6,
+      "length": 6,
+      "fee": 75,
+      "weight": 71,
+      "eta": 7
+    },
+    {
+      "id": "V030",
+      "width": 3,
+      "length": 5,
+      "fee": 37,
+      "weight": 19,
+      "eta": 7
+    },
+    {
+      "id": "V031",
+      "width": 2,
+      "length": 2,
+      "fee": 31,
+      "weight": 5,
+      "eta": 6
+    },
+    {
+      "id": "V032",
+      "width": 1,
+      "length": 5,
+      "fee": 23,
+      "weight": 10,
+      "eta": 3
+    },
+    {
+      "id": "V033",
+      "width": 1,
+      "length": 2,
+      "fee": 9,
+      "weight": 6,
+      "eta": 7
+    },
+    {
+      "id": "V034",
+      "width": 2,
+      "length": 4,
+      "fee": 18,
+      "weight": 8,
+      "eta": 7
+    },
+    {
+      "id": "V035",
+      "width": 2,
+      "length": 5,
+      "fee": 34,
+      "weight": 12,
+      "eta": 3
+    },
+    {
+      "id": "V036",
+      "width": 1,
+      "length": 6,
+      "fee": 30,
+      "weight": 10,
+      "eta": 1
+    },
+    {
+      "id": "V037",
+      "width": 6,
+      "length": 1,
+      "fee": 41,
+      "weight": 12,
+      "eta": 3
+    },
+    {
+      "id": "V038",
+      "width": 5,
+      "length": 3,
+      "fee": 59,
+      "weight": 19,
+      "eta": 3
+    },
+    {
+      "id": "V039",
+      "width": 1,
+      "length": 3,
+      "fee": 13,
+      "weight": 8,
+      "eta": 3
+    },
+    {
+      "id": "V040",
+      "width": 2,
+      "length": 1,
+      "fee": 10,
+      "weight": 5,
+      "eta": 3
+    }
+  ]
+}
