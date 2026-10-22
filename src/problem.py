@@ -1,11 +1,10 @@
 from importlib.resources import path
 import json
-from core import is_valid
+from src.core import is_valid
 import os
 import matplotlib
 import matplotlib.pyplot as plt
 
-import problem
 matplotlib.use("Agg")
 
 # helper untuk validasi angka

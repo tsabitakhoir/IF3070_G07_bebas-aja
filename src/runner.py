@@ -12,11 +12,11 @@ import os
 import random
 import statistics
 from pathlib import Path
-from problem import load_problem, random_state, save_output, config_to_text
-from algorithms.genetic_algorithm import genetic_algorithm
-from algorithms.simulated_annealing import SA
-from algorithms.hill_climbing import hill_climbing_sideways
-from visualisasi import draw_result, draw_trend
+from src.problem import load_problem, random_state, save_output, config_to_text
+from src.algorithms.genetic_algorithm import genetic_algorithm
+from src.algorithms.simulated_annealing import SA
+from src.algorithms.hill_climbing import hill_climbing_sideways
+from src.visualisasi import draw_result, draw_trend
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
@@ -27,7 +27,7 @@ def run_sa(problem, rng, temperature=100, cooling_rate=0.95, max_iterations=1000
     state = random_state(problem, rng)
     initial_state = copy.deepcopy(state)
     hasil = SA(state, problem, temperature, cooling_rate, max_iterations, rng)
-    _, final_state, final_value, history, duration, prob_history = hasil
+    _, final_state, final_value, history, duration, prob_history, countt, stuckk = hasil
 
     return {
         "algorithm": "Simulated Annealing",
@@ -42,8 +42,8 @@ def run_sa(problem, rng, temperature=100, cooling_rate=0.95, max_iterations=1000
         "history": history,
         "duration_s": duration,
         "iterations": len(history),
-        "evaluations": len(history),
-        "extra": {"accept_prob_history": prob_history},
+        "evaluations": len(history) + 1,
+        "extra": {"accept_prob_history": prob_history, "count_stuck": countt},
     }
 
 def run_hc(problem, rng, max_sideways=100):
@@ -77,7 +77,7 @@ EXPERIMENTS = {
     },
     "SA": {
         "fn": run_sa,
-        "configs": [{"temperature": 100, "cooling_rate": 0.95, "max_iterations": 1000}],
+        "configs": [{"temperature": 100, "cooling_rate": a, "max_iterations": 500} for a in (0.9, 0.925, 0.95)],
     },
     "HC": {
         "fn": run_hc,

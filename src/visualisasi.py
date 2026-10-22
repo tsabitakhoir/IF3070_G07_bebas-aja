@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-from core import footprint, objective
+from src.core import footprint, objective
 
 MAKS_ID = 8
 

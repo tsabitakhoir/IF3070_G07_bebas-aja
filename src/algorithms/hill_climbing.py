@@ -1,8 +1,8 @@
 import time
 
-from core import objective
-from neighbors import copy_state, all_neighbors
-from problem import random_state
+from src.core import objective
+from src.neighbors import copy_state, all_neighbors
+from src.problem import random_state
  
  
 def hill_climbing_sideways(problem, rng, max_sideways=100):

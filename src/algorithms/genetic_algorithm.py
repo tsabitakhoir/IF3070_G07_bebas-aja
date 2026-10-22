@@ -1,7 +1,7 @@
 import copy
 import time
-from problem import random_state
-from core import is_valid, objective
+from src.problem import random_state
+from src.core import is_valid, objective
 
 # fungsi inisialisasi, bikin populasi awal as representasi
 def create_population(problem, rng, population_size):

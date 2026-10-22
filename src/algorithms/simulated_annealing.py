@@ -1,7 +1,28 @@
 import math
 import time
-from core import objective
-from neighbors import random_neighbor
+from src.core import objective
+from src.neighbors import random_neighbor
+
+def count_stuck(history, treshold):
+    countt = 0
+    stuckk = 0
+    length = 1
+
+    for k in range (1, len(history)):
+        if history[k] == history[k - 1]:
+            length +=1
+
+        else:
+            if length >= treshold:
+                countt += 1
+                stuckk += length
+            length = 1
+
+    if length >= treshold:
+        countt += 1
+        stuckk += length
+
+    return countt, stuckk
 
 def SA(state, problem, temperature, alpha, iterations, rng):
     curr_state = state
@@ -37,8 +58,9 @@ def SA(state, problem, temperature, alpha, iterations, rng):
         history_fee.append(curr_fee)
         temperature *= alpha
 
-        if temperature <= 1e-8:
+        if temperature <= 0.5:
             break
     end = time.perf_counter()
     durasi = end - start
-    return state, curr_state, curr_fee, history_fee, durasi, history_probability
+    countt, stuckk = count_stuck(history_fee, max(5, 0.05 * len(history_fee)))
+    return state, curr_state, curr_fee, history_fee, durasi, history_probability, countt, stuckk
