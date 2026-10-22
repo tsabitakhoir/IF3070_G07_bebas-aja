@@ -1,7 +1,7 @@
-import matplotlib.pyplot as plt
+﻿import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-from core import footprint, objective
+from src.core import footprint, objective
 
 MAKS_ID = 8
 
@@ -109,7 +109,7 @@ def draw_result(result, problem, save_path=None, show=False):
         probs = result.get("extra", {}).get("accept_prob_history")
         if probs:
             draw_trend(axes[1, 1], probs, "Probabilitas per iterasi", "e^(delta/T)")
-            stuck = result.get("extra", {}).get("stuck_count")
+            stuck = result.get("extra", {}).get("count_stuck")
             if stuck is not None:
                 axes[1, 1].set_xlabel(f"iterasi (stuck di local optimum: {stuck}x)")
         else:

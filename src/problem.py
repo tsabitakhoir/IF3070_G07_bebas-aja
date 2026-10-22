@@ -1,6 +1,6 @@
-import json
+﻿import json
 import os
-from core import is_valid
+from src.core import is_valid
 
 
 # helper untuk validasi angka
