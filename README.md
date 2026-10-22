@@ -65,6 +65,6 @@ Opsi yang tersedia:
 ## Pembagian Tugas
 | NIM | Nama | Pembagian Tugas |
 |---|---|---|
-| 18224006 | Tsabita Khoirunnisa | - Inisialisasi pembagian tugas - Mengerjakan core.py - Mengerjakan hill_climbing.py - Mengerjakan runner.py, generator_testcase.py, dan visualisasi.py - Penulisan core.py, visualisasi.py, dan hill_climbing.py  pada laporan |
-| 18224034 | Wa Ode Amerta Lambelu Jamaluddin | - Mengerjakan problem.py - Mengerjakan genetic_algorithm.py - Mengerjakan testcase_generator.py - Menuliskan algoritma genetik di laporan - Menuliskan problem.py dan generator_testcase.py di laporan |
-| 18224048 | Melvin Irsyad | - Mengerjakan neighbors.py - Mengerjakan simulated_annealing.py - Inisialisasi pengerjaan visualisasi.py - Penulisan neighbors.py pada laporan - Penulisan runner.py pada laporan - Penulisan simulated_annealing.py, seluruh eksperimennya, dan analisis pada laporan - Membantu formatting dokumen dan menambahkan README.md |
+| 18224006 | Tsabita Khoirunnisa | - Inisialisasi pembagian tugas<br>- Mengerjakan core.py<br>- Mengerjakan hill_climbing.py<br>- Mengerjakan runner.py, generator_testcase.py, dan visualisasi.py<br>- Penulisan core.py, visualisasi.py, dan hill_climbing.py  pada laporan |
+| 18224034 | Wa Ode Amerta Lambelu Jamaluddin | - Mengerjakan problem.py<br>- Mengerjakan genetic_algorithm.py<br>- Mengerjakan testcase_generator.py<br>- Menuliskan algoritma genetik di laporan<br>- Menuliskan problem.py dan generator_testcase.py di laporan |
+| 18224048 | Melvin Irsyad | - Mengerjakan neighbors.py<br>- Mengerjakan simulated_annealing.py<br>- Inisialisasi pengerjaan visualisasi.py<br>- Penulisan neighbors.py pada laporan<br>- Penulisan runner.py pada laporan<br>- Penulisan simulated_annealing.py, seluruh eksperimennya, dan analisis pada laporan<br>- Membantu formatting dokumen dan menambahkan README.md |
