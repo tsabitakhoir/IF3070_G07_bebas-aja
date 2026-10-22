@@ -1,12 +1,7 @@
-from importlib.resources import path
 import json
-from core import is_valid
 import os
-import matplotlib
-import matplotlib.pyplot as plt
+from core import is_valid
 
-import problem
-matplotlib.use("Agg")
 
 # helper untuk validasi angka
 def check_int_positive(value, field_name):
@@ -14,7 +9,7 @@ def check_int_positive(value, field_name):
         raise ValueError(f"{field_name} harus bulat positif")
 
 
-# baca file input dan ubah ke bentuk dictionaru
+# baca file input dan ubah ke bentuk dictionary
 def load_problem(path):
     with open(path, "r", encoding="utf-8") as file:
         problem = json.load(file)
@@ -29,21 +24,21 @@ def load_problem(path):
     check_int_positive(ship.get("length"), "panjang kapal")
     check_int_positive(ship.get("max_capacity"), "kapasitas maksimal kapal")
 
-    # validasi komponen2 di kendaraan
+    # validasi tiap kendaraan (semua pengecekan ada di dalam loop)
     seen_id = set()
     for vehicle in problem["vehicles"]:
         vehicle_id = vehicle.get("id")
-    if not isinstance(vehicle_id, str):
-        raise ValueError("ID kendaraan harus string")
-    if vehicle_id in seen_id:
-        raise ValueError(f"ID {vehicle_id} duplikat")
-    seen_id.add(vehicle_id)
+        if not isinstance(vehicle_id, str):
+            raise ValueError("ID kendaraan harus string")
+        if vehicle_id in seen_id:
+            raise ValueError(f"ID {vehicle_id} duplikat")
+        seen_id.add(vehicle_id)
 
-    check_int_positive(vehicle.get("width"), f"lebar kendaraan {vehicle_id}")
-    check_int_positive(vehicle.get("length"), f"panjang kendaraan {vehicle_id}")
-    check_int_positive(vehicle.get("fee"), f"fee kendaraan {vehicle_id}")
-    check_int_positive(vehicle.get("weight"), f"berat kendaraan {vehicle_id}")
-    check_int_positive(vehicle.get("eta"), f"eta kendaraan {vehicle_id}")
+        check_int_positive(vehicle.get("width"), f"lebar kendaraan {vehicle_id}")
+        check_int_positive(vehicle.get("length"), f"panjang kendaraan {vehicle_id}")
+        check_int_positive(vehicle.get("fee"), f"fee kendaraan {vehicle_id}")
+        check_int_positive(vehicle.get("weight"), f"berat kendaraan {vehicle_id}")
+        check_int_positive(vehicle.get("eta"), f"eta kendaraan {vehicle_id}")
 
     return problem
 
@@ -54,20 +49,21 @@ def random_state(problem, rng, max_attempts=10):
     ship = problem["ship"]
     total = len(vehicles)
 
+    # awalnya semua kendaraan di luar kapal
     state = []
-    for _ in range (total):
+    for _ in range(total):
         state.append({"location": -1, "x": 0, "y": 0, "orientation": "H"})
 
-    #acak urutan kendaraan yg mau dimasukin
+    # acak urutan kendaraan yg mau dimasukin
     order = list(range(total))
     rng.shuffle(order)
 
-    #masukin kendaraan ke kapal
+    # masukin kendaraan ke kapal satu per satu
     for index in order:
         v = vehicles[index]
 
-        # loop max attempts buat orientasi
-        for _ in range (max_attempts):
+        # tiap kendaraan dicoba beberapa kali, orientasi dan posisinya diacak ulang
+        for _ in range(max_attempts):
             orientation = rng.choice(["H", "V"])
 
             if orientation == "H":
@@ -77,25 +73,30 @@ def random_state(problem, rng, max_attempts=10):
                 w2 = v["length"]
                 l2 = v["width"]
 
-        limit_x = ship["width"] - w2
-        limit_y = ship["length"] - l2
+            limit_x = ship["width"] - w2
+            limit_y = ship["length"] - l2
 
-        if limit_x < 0 or limit_y < 0:
-            continue
+            # orientasi ini nggak muat di kapal, coba lagi
+            if limit_x < 0 or limit_y < 0:
+                continue
 
-        state[index] = {"location": 0, "x": rng.randint(0, limit_x), "y": rng.randint(0, limit_y), "orientation": orientation}
+            state[index] = {"location": 0, "x": rng.randint(0, limit_x), "y": rng.randint(0, limit_y), "orientation": orientation}
 
-        if is_valid(state, problem) == True:
-            break
-        else:
+            if is_valid(state, problem):
+                break
+
+            # nggak valid (nabrak atau kelebihan berat), balikin ke luar kapal
             state[index] = {"location": -1, "x": 0, "y": 0, "orientation": "H"}
+
     return state
+
 
 # fungsi helper buat penamaan file
 def config_to_text(config):
     if not config:
         return "default"
     return "_".join(f"{key}{value}" for key, value in sorted(config.items()))
+
 
 #ngesave hasil run, initial final state, durasi, stuffs like that ke output
 def save_output(result, output_directory="output"):
