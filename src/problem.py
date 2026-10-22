@@ -97,30 +97,11 @@ def config_to_text(config):
         return "default"
     return "_".join(f"{key}{value}" for key, value in sorted(config.items()))
 
-#ngesave ke output dan bikin visualisasi
+#ngesave hasil run, initial final state, durasi, stuffs like that ke output
 def save_output(result, output_directory="output"):
     name = f"{result ['algorithm']}_{config_to_text(result.get('config', {}))}_run{result['run']}"
     json_path = os.path.join(output_directory, name + ".json")
-    png_path = os.path.join(output_directory, name + ".png")
 
     with open(json_path, 'w', encoding="utf-8") as file:
         json.dump(result, file, indent = 2, ensure_ascii = False)
-
-    fig, ax = plt.subplots(figsize=(7, 5))
-
-    if "history" in result:
-        ax.plot(range(len(result["history"])), result["history"], label = "objective")
-    else:
-        ax.plot(range(len(result["history_max"])), result["history_max"], label = "max")
-        ax.plot(range(len(result["history_mean"])), result["history_mean"], label = "mean")
-
-    ax.set_title(f"{result['algorithm']} ({config_to_text(result.get('config', {}))}), run {result['run']}")
-    ax.set_xlabel("Iteration")
-    ax.set_ylabel("Objective Value")
-    ax.legend()
-
-    fig.tight_layout()
-    fig.savefig(png_path, dpi=150)
-    plt.close(fig)
-
-    return json_path, png_path
+    return json_path

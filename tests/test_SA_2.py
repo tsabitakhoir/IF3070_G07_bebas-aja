@@ -43,5 +43,5 @@ draw_state(axes[0, 1], hasil[1], problem, "State Akhir")
 draw_trend(axes[1, 0], hasil[3], "Objective per iterasi", "Objective")
 draw_trend(axes[1, 1], hasil[5], "Probabilitas per iterasi", "e^(delta/T)")
 
-plt.tight_layout
+plt.tight_layout()
 plt.show()
