@@ -109,6 +109,9 @@ def draw_result(result, problem, save_path=None, show=False):
         probs = result.get("extra", {}).get("accept_prob_history")
         if probs:
             draw_trend(axes[1, 1], probs, "Probabilitas per iterasi", "e^(delta/T)")
+            stuck = result.get("extra", {}).get("stuck_count")
+            if stuck is not None:
+                axes[1, 1].set_xlabel(f"iterasi (stuck di local optimum: {stuck}x)")
         else:
             draw_info(axes[1, 1], info_lines(result))
 

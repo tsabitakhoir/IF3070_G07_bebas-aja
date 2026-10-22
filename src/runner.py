@@ -27,8 +27,7 @@ def run_sa(problem, rng, temperature=100, cooling_rate=0.95, max_iterations=1000
     state = random_state(problem, rng)
     initial_state = copy.deepcopy(state)
     hasil = SA(state, problem, temperature, cooling_rate, max_iterations, rng)
-    _, final_state, final_value, history, duration, prob_history = hasil
-
+    _, final_state, final_value, history, duration, prob_history, stuck = hasil
     return {
         "algorithm": "Simulated Annealing",
         "config": {
@@ -43,7 +42,7 @@ def run_sa(problem, rng, temperature=100, cooling_rate=0.95, max_iterations=1000
         "duration_s": duration,
         "iterations": len(history),
         "evaluations": len(history),
-        "extra": {"accept_prob_history": prob_history},
+        "extra": {"accept_prob_history": prob_history, "stuck_count": stuck},
     }
 
 def run_hc(problem, rng, max_sideways=100):

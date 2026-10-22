@@ -1,7 +1,7 @@
 import math
 import time
 from core import objective
-from neighbors import random_neighbor
+from neighbors import all_neighbors
 
 def SA(state, problem, temperature, alpha, iterations, rng):
     curr_state = state
@@ -10,13 +10,23 @@ def SA(state, problem, temperature, alpha, iterations, rng):
     best_fee = curr_fee
     history_fee = []
     history_probability = []
+    stuck = 0
 
     start = time.perf_counter()
     for x in range(iterations):
-        neighbor = random_neighbor(curr_state, problem, rng)
-        if neighbor is None:
+        tetangga = all_neighbors(curr_state, problem)
+        if len(tetangga) == 0:
             break
-        neighbor_fee = objective(neighbor, problem)
+
+        nilai = []
+        for t in tetangga:
+            nilai.append(objective(t, problem))
+        if max(nilai) <= curr_fee:
+            stuck += 1
+
+        pilih = rng.randrange(len(tetangga))
+        neighbor = tetangga[pilih]
+        neighbor_fee = nilai[pilih]
 
         delta = neighbor_fee - curr_fee
         if delta >= 0:
@@ -41,4 +51,4 @@ def SA(state, problem, temperature, alpha, iterations, rng):
             break
     end = time.perf_counter()
     durasi = end - start
-    return state, curr_state, curr_fee, history_fee, durasi, history_probability
+    return state, best_state, best_fee, history_fee, durasi, history_probability, stuck
