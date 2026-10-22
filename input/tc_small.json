@@ -1,0 +1,57 @@
+{
+  "ship": {
+    "width": 5,
+    "length": 5,
+    "max_capacity": 49
+  },
+  "vehicles": [
+    {
+      "id": "V001",
+      "width": 2,
+      "length": 3,
+      "fee": 43,
+      "weight": 15,
+      "eta": 4
+    },
+    {
+      "id": "V002",
+      "width": 3,
+      "length": 3,
+      "fee": 28,
+      "weight": 23,
+      "eta": 4
+    },
+    {
+      "id": "V003",
+      "width": 3,
+      "length": 3,
+      "fee": 61,
+      "weight": 11,
+      "eta": 3
+    },
+    {
+      "id": "V004",
+      "width": 1,
+      "length": 1,
+      "fee": 5,
+      "weight": 3,
+      "eta": 6
+    },
+    {
+      "id": "V005",
+      "width": 1,
+      "length": 3,
+      "fee": 24,
+      "weight": 9,
+      "eta": 6
+    },
+    {
+      "id": "V006",
+      "width": 3,
+      "length": 3,
+      "fee": 53,
+      "weight": 20,
+      "eta": 7
+    }
+  ]
+}

@@ -1,11 +1,10 @@
 from importlib.resources import path
 import json
-from core import is_valid
+from src.core import is_valid
 import os
 import matplotlib
 import matplotlib.pyplot as plt
 
-import problem
 matplotlib.use("Agg")
 
 # helper untuk validasi angka
@@ -101,7 +100,7 @@ def config_to_text(config):
 def save_output(result, output_directory="output"):
     name = f"{result ['algorithm']}_{config_to_text(result.get('config', {}))}_run{result['run']}"
     json_path = os.path.join(output_directory, name + ".json")
-    png_path = os.path.join(output_directory, __name__ + ".png")
+    png_path = os.path.join(output_directory, name + ".png")
 
     with open(json_path, 'w', encoding="utf-8") as file:
         json.dump(result, file, indent = 2, ensure_ascii = False)

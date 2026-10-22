@@ -1,5 +1,5 @@
 from itertools import combinations
-from core import is_valid
+from src.core import is_valid
 
 def copy_state(state):
     return [dict(v) for v in state]
