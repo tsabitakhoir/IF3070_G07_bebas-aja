@@ -1,5 +1,5 @@
 # IF3070_G07_bebas-aja
-Tugas Besar 1 IF3070 — local search untuk penataan kendaraan di geladak kapal
+Tugas Besar 1 IF3070 - local search untuk penataan kendaraan di geladak kapal
 
 ## Deskripsi Singkat
 Tujuan dari sistem ini adalah memaksimalkan total ShippingFee dari kendaraan yang berada di atas kapal. Terdapat tiga batasan yang harus dipenuhi. Pertama, kendaraan tidak boleh saling bertindihan, sehingga satu sel geladak hanya boleh ditempati satu kendaraan. Kedua, seluruh sel yang ditempati harus berada dalam batas geladak. Ketiga, total berat seluruh kendaraan yang berada di kapal tidak boleh melebihi kapasitas maksimum kapal. 
@@ -56,8 +56,8 @@ Opsi yang tersedia:
 │       ├── simulated_annealing.py
 │       └── genetic_algorithm.py
 ├── tests/                         
-├── input/ (berisikan seluruh test_case file                        
-├── output/ (berisikan seluruh output eksperimen (json dan visualisasi)                       
+├── input/ (berisikan seluruh test_case file)                        
+├── output/ (berisikan seluruh output eksperimen (json dan visualisasi))                       
 ├── docs/ (berisikan laporan)                         
 └── README.md
 ```
@@ -65,6 +65,6 @@ Opsi yang tersedia:
 ## Pembagian Tugas
 | NIM | Nama | Pembagian Tugas |
 |---|---|---|
-| 18224006 | Tsabita Khoirunnisa | |
-| 18224034 | Wa Ode Amerta Lambelu Jamaluddin | |
-| 18224048 | Melvin Irsyad | |
+| 18224006 | Tsabita Khoirunnisa | - Inisialisasi pembagian tugas - Mengerjakan core.py - Mengerjakan hill_climbing.py - Mengerjakan runner.py, generator_testcase.py, dan visualisasi.py - Penulisan core.py, visualisasi.py, dan hill_climbing.py  pada laporan |
+| 18224034 | Wa Ode Amerta Lambelu Jamaluddin | - Mengerjakan problem.py - Mengerjakan genetic_algorithm.py - Mengerjakan testcase_generator.py - Menuliskan algoritma genetik di laporan - Menuliskan problem.py dan generator_testcase.py di laporan |
+| 18224048 | Melvin Irsyad | - Mengerjakan neighbors.py - Mengerjakan simulated_annealing.py - Inisialisasi pengerjaan visualisasi.py - Penulisan neighbors.py pada laporan - Penulisan runner.py pada laporan - Penulisan simulated_annealing.py, seluruh eksperimennya, dan analisis pada laporan - Membantu formatting dokumen dan menambahkan README.md |
